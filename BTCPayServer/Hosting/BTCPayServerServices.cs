@@ -23,6 +23,7 @@ using BTCPayServer.Lightning;
 using BTCPayServer.Lightning.Charge;
 using BTCPayServer.Lightning.CLightning;
 using BTCPayServer.Lightning.Eclair;
+using BTCPayServer.Lightning.Blink;
 using BTCPayServer.Lightning.LNbank;
 using BTCPayServer.Lightning.LND;
 using BTCPayServer.Lightning.LNDhub;
@@ -136,6 +137,8 @@ namespace BTCPayServer.Hosting
                 new CLightningConnectionStringHandler());
             services.AddSingleton<Func<HttpClient, ILightningConnectionStringHandler>>(client =>
                 new EclairConnectionStringHandler(client));
+            services.AddSingleton<Func<HttpClient, ILightningConnectionStringHandler>>(client =>
+                new BlinkConnectionStringHandler(client));
             services.AddSingleton<Func<HttpClient, ILightningConnectionStringHandler>>(client =>
                 new LndConnectionStringHandler(client));
             services.AddSingleton<Func<HttpClient, ILightningConnectionStringHandler>>(client =>
@@ -262,6 +265,8 @@ namespace BTCPayServer.Hosting
                                                               $"If you have an eclair server: 'type=eclair;server=http://eclair.com:4570;password=eclairpassword;bitcoin-host=bitcoind:37393;bitcoin-auth=bitcoinrpcuser:bitcoinrpcpassword" +
                                                               Environment.NewLine +
                                                               $"               eclair server: 'type=eclair;server=http://eclair.com:4570;password=eclairpassword;bitcoin-host=bitcoind:37393" +
+                                                              Environment.NewLine +
+                                                              $"               blink server: 'type=blink;server=http://blink.com:4570;password=blinkpassword;bitcoin-host=bitcoind:37393" +
                                                               Environment.NewLine +
                                                               $"Error: {error}" + Environment.NewLine +
                                                               "This service will not be exposed through BTCPay Server");
