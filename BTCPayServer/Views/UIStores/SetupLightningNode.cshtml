@@ -77,6 +77,26 @@
             <p class="mt-4 mb-2">BTCPay Server currently supports:</p>
             <div class="accordion" id="CustomNodeSupport">
                 <div class="accordion-item">
+                    <h2 class="accordion-header" id="CustomNodeBlinkHeader">
+                        <button type="button" class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#CustomNodeCLightningContent" aria-controls="CustomNodeCLightningContent" aria-expanded="false">
+                            <span><strong>Blink</strong> via TCP or unix domain socket connection</span>
+                            <vc:icon symbol="caret-down"/>
+                        </button>
+                    </h2>
+                    <div id="CustomNodeCLightningContent" class="accordion-collapse collapse" aria-labelledby="CustomNodeCLightningHeader" data-bs-parent="#CustomNodeSupport">
+                        <div class="accordion-body">
+                            <ul class="mb-0">
+                                <li>
+                                    <code><b>type=</b>blink;<b>server=</b>https://api.blink.sv/graphql</code>
+                                </li>
+                                <li>
+                                    <code><b>type=</b>blink;<b>server=</b>https://api.blink.sv/graphql</code>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
                     <h2 class="accordion-header" id="CustomNodeCLightningHeader">
                         <button type="button" class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#CustomNodeCLightningContent" aria-controls="CustomNodeCLightningContent" aria-expanded="false">
                             <span><strong>c-lightning</strong> via TCP or unix domain socket connection</span>
